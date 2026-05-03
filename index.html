@@ -14,19 +14,18 @@
       background: #161b27; border-bottom: 1px solid #2a2f3f;
     }
     .logo { font-size: 22px; font-weight: 700; color: #f0a500; letter-spacing: 1px; }
-    .nav-links { display: flex; gap: 1.5rem; font-size: 14px; color: #aaa; }
+    .nav-links { display: flex; gap: 1.5rem; font-size: 14px; }
     .nav-links a { color: #aaa; text-decoration: none; display: flex; align-items: center; gap: 6px; }
     .nav-links a:hover { color: #fff; }
 
     .tabs {
-      display: flex; gap: 0; padding: 1.5rem 2rem 0;
+      display: flex; padding: 1.5rem 2rem 0;
       border-bottom: 1px solid #2a2f3f; background: #13181f;
     }
     .tab {
       display: flex; flex-direction: column; align-items: center; gap: 4px;
       padding: 10px 24px; font-size: 13px; color: #888;
       cursor: pointer; border-bottom: 2px solid transparent;
-      transition: color 0.15s;
     }
     .tab.active { color: #fff; border-bottom: 2px solid #f0a500; }
     .tab-icon { font-size: 18px; }
@@ -35,59 +34,76 @@
 
     .header-row {
       display: grid;
-      grid-template-columns: 48px 1fr 80px 220px;
+      grid-template-columns: 48px 1fr 100px 160px;
       gap: 1rem; padding: 6px 12px;
       font-size: 11px; color: #555;
       letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px;
     }
-    .header-row .tiers-label { text-align: right; }
 
     .row {
       display: grid;
-      grid-template-columns: 48px 1fr 80px 220px;
+      grid-template-columns: 48px 1fr 100px 160px;
       align-items: center; gap: 1rem;
-      padding: 10px 12px; border-radius: 8px;
-      margin-bottom: 6px;
+      padding: 12px 12px; border-radius: 10px;
+      margin-bottom: 8px;
       background: #1a1f2e; border: 1px solid #222840;
       transition: background 0.15s;
     }
     .row:hover { background: #1f2540; }
 
-    .rank { font-size: 18px; font-weight: 700; color: #888; }
-    .rank.gold   { color: #f0a500; }
-    .rank.silver { color: #c0c0c0; }
-    .rank.bronze { color: #cd7f32; }
+    .rank-num {
+      font-size: 20px; font-weight: 800; color: #888;
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      background: #12162a; border: 1px solid #2a2f4a;
+    }
+    .rank-num.gold   { color: #f0a500; border-color: #f0a50040; background: #1e1800; }
+    .rank-num.silver { color: #c0c0c0; border-color: #c0c0c030; background: #161616; }
+    .rank-num.bronze { color: #cd7f32; border-color: #cd7f3230; background: #1a1208; }
 
     .player-info { display: flex; align-items: center; gap: 12px; }
     .avatar {
-      width: 42px; height: 42px; border-radius: 4px;
+      width: 44px; height: 44px; border-radius: 6px;
       background: #2a3050; display: flex; align-items: center;
-      justify-content: center; font-size: 13px; font-weight: 600; color: #aaa;
-      flex-shrink: 0;
+      justify-content: center; font-size: 14px; font-weight: 700; color: #aaa;
+      flex-shrink: 0; border: 1px solid #333a5a;
     }
     .player-name { font-size: 15px; font-weight: 600; color: #fff; }
-    .player-title { font-size: 12px; color: #f0a500; margin-top: 2px; }
-    .player-title span { color: #666; }
+    .player-title { font-size: 12px; color: #f0a500; margin-top: 3px; }
+    .player-title span { color: #555; }
 
     .region {
-      display: inline-block; padding: 3px 10px;
-      border-radius: 4px; font-size: 12px; font-weight: 700;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 4px 14px; border-radius: 6px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
     }
-    .na { background: #7b1e1e; color: #ff8a8a; }
-    .eu { background: #1e3a7b; color: #8aafff; }
+    .na { background: #7b1e1e44; color: #ff8a8a; border: 1px solid #7b1e1e; }
+    .eu { background: #1e3a7b44; color: #8aafff; border: 1px solid #1e3a7b; }
 
-    .tiers { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
-    .tier-badge {
-      width: 36px; height: 36px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 9px; font-weight: 700; flex-direction: column; line-height: 1.1;
-      flex-shrink: 0;
+    .rank-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 8px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+      border: 1px solid;
     }
-    .ht1 { background: #2d1f6e; color: #b39dff; border: 1px solid #5c45c8; }
-    .ht2 { background: #1e3060; color: #8ab4ff; border: 1px solid #3a5ea0; }
-    .ht3 { background: #1a3a25; color: #7dca9a; border: 1px solid #3a7a55; }
-    .lt1 { background: #3a2010; color: #ffb86a; border: 1px solid #a05a20; }
-    .lt2 { background: #3a1010; color: #ff8a8a; border: 1px solid #a03030; }
+    .rank-badge .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+    .badge-grandmaster {
+      background: #1e0d3a; color: #d4a8ff;
+      border-color: #7c3aed55;
+    }
+    .badge-grandmaster .dot { background: #a855f7; box-shadow: 0 0 6px #a855f7; }
+    .badge-master {
+      background: #0d1e3a; color: #93c5fd;
+      border-color: #3b82f655;
+    }
+    .badge-master .dot { background: #60a5fa; box-shadow: 0 0 6px #60a5fa; }
+    .badge-ace {
+      background: #0d2a1a; color: #6ee7b7;
+      border-color: #10b98155;
+    }
+    .badge-ace .dot { background: #34d399; box-shadow: 0 0 6px #34d399; }
 
     .footer {
       text-align: center; padding: 2rem;
@@ -96,10 +112,8 @@
     }
 
     @media (max-width: 600px) {
-      .header-row, .row { grid-template-columns: 36px 1fr 50px; }
-      .tiers, .header-row .tiers-label { display: none; }
-      .tabs { overflow-x: auto; }
-      .tab { padding: 10px 14px; }
+      .header-row, .row { grid-template-columns: 40px 1fr 60px; }
+      .rank-badge { display: none; }
     }
   </style>
 </head>
@@ -123,127 +137,85 @@
     <div>#</div>
     <div>Player</div>
     <div>Region</div>
-    <div class="tiers-label">Tiers</div>
+    <div>Rank</div>
   </div>
 
   <div class="row">
-    <div class="rank gold">1.</div>
+    <div class="rank-num gold">1</div>
     <div class="player-info">
       <div class="avatar">ZR</div>
       <div>
         <div class="player-name">ZeroRekt</div>
-        <div class="player-title">⭐ Combat Grandmaster <span>(450 pts)</span></div>
+        <div class="player-title">450 pts</div>
       </div>
     </div>
     <div><span class="region na">NA</span></div>
-    <div class="tiers">
-      <div class="tier-badge ht1">HT<br>1</div>
-      <div class="tier-badge ht1">HT<br>1</div>
-      <div class="tier-badge lt1">LT<br>1</div>
-      <div class="tier-badge ht1">HT<br>1</div>
-      <div class="tier-badge ht2">HT<br>2</div>
-      <div class="tier-badge lt1">LT<br>1</div>
-    </div>
+    <div><span class="rank-badge badge-grandmaster"><span class="dot"></span>Combat Grandmaster</span></div>
   </div>
 
   <div class="row">
-    <div class="rank silver">2.</div>
+    <div class="rank-num silver">2</div>
     <div class="player-info">
       <div class="avatar">AX</div>
       <div>
         <div class="player-name">AxelPvP</div>
-        <div class="player-title">⭐ Combat Master <span>(330 pts)</span></div>
+        <div class="player-title">330 pts</div>
       </div>
     </div>
     <div><span class="region eu">EU</span></div>
-    <div class="tiers">
-      <div class="tier-badge ht2">HT<br>2</div>
-      <div class="tier-badge ht1">HT<br>1</div>
-      <div class="tier-badge ht1">HT<br>1</div>
-      <div class="tier-badge lt2">LT<br>2</div>
-      <div class="tier-badge ht3">HT<br>3</div>
-      <div class="tier-badge lt1">LT<br>1</div>
-    </div>
+    <div><span class="rank-badge badge-master"><span class="dot"></span>Combat Master</span></div>
   </div>
 
   <div class="row">
-    <div class="rank bronze">3.</div>
+    <div class="rank-num bronze">3</div>
     <div class="player-info">
       <div class="avatar">NX</div>
       <div>
         <div class="player-name">NoxFrost</div>
-        <div class="player-title">⭐ Combat Master <span>(320 pts)</span></div>
+        <div class="player-title">320 pts</div>
       </div>
     </div>
     <div><span class="region na">NA</span></div>
-    <div class="tiers">
-      <div class="tier-badge ht1">HT<br>1</div>
-      <div class="tier-badge lt1">LT<br>1</div>
-      <div class="tier-badge ht3">HT<br>3</div>
-      <div class="tier-badge ht1">HT<br>1</div>
-      <div class="tier-badge lt2">LT<br>2</div>
-      <div class="tier-badge ht2">HT<br>2</div>
-    </div>
+    <div><span class="rank-badge badge-master"><span class="dot"></span>Combat Master</span></div>
   </div>
 
   <div class="row">
-    <div class="rank">4.</div>
+    <div class="rank-num">4</div>
     <div class="player-info">
       <div class="avatar">VX</div>
       <div>
         <div class="player-name">VexBlade</div>
-        <div class="player-title">💎 Combat Ace <span>(290 pts)</span></div>
+        <div class="player-title">290 pts</div>
       </div>
     </div>
     <div><span class="region eu">EU</span></div>
-    <div class="tiers">
-      <div class="tier-badge ht3">HT<br>3</div>
-      <div class="tier-badge lt1">LT<br>1</div>
-      <div class="tier-badge ht2">HT<br>2</div>
-      <div class="tier-badge ht1">HT<br>1</div>
-      <div class="tier-badge lt2">LT<br>2</div>
-      <div class="tier-badge ht3">HT<br>3</div>
-    </div>
+    <div><span class="rank-badge badge-ace"><span class="dot"></span>Combat Ace</span></div>
   </div>
 
   <div class="row">
-    <div class="rank">5.</div>
+    <div class="rank-num">5</div>
     <div class="player-info">
       <div class="avatar">SK</div>
       <div>
         <div class="player-name">SkyKill</div>
-        <div class="player-title">💎 Combat Ace <span>(245 pts)</span></div>
+        <div class="player-title">245 pts</div>
       </div>
     </div>
     <div><span class="region na">NA</span></div>
-    <div class="tiers">
-      <div class="tier-badge lt1">LT<br>1</div>
-      <div class="tier-badge ht2">HT<br>2</div>
-      <div class="tier-badge ht1">HT<br>1</div>
-      <div class="tier-badge lt2">LT<br>2</div>
-      <div class="tier-badge ht3">HT<br>3</div>
-      <div class="tier-badge lt1">LT<br>1</div>
-    </div>
+    <div><span class="rank-badge badge-ace"><span class="dot"></span>Combat Ace</span></div>
   </div>
 
   <div class="row">
-    <div class="rank">6.</div>
+    <div class="rank-num">6</div>
     <div class="player-info">
       <div class="avatar">CR</div>
       <div>
         <div class="player-name">CrimsonArc</div>
-        <div class="player-title">💎 Combat Ace <span>(226 pts)</span></div>
+        <div class="player-title">226 pts</div>
       </div>
     </div>
     <div><span class="region eu">EU</span></div>
-    <div class="tiers">
-      <div class="tier-badge ht2">HT<br>2</div>
-      <div class="tier-badge ht3">HT<br>3</div>
-      <div class="tier-badge lt2">LT<br>2</div>
-      <div class="tier-badge ht1">HT<br>1</div>
-      <div class="tier-badge lt1">LT<br>1</div>
-      <div class="tier-badge ht2">HT<br>2</div>
-    </div>
+    <div><span class="rank-badge badge-ace"><span class="dot"></span>Combat Ace</span></div>
   </div>
 
 </div>
