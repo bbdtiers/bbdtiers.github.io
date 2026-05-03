@@ -9,26 +9,60 @@
     body { background: #0f1117; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
 
     .nav {
-      display: flex; align-items: center; gap: 2rem;
+      display: grid;
+      grid-template-columns: 180px 1fr 220px;
+      align-items: center;
       padding: 0 2rem; height: 56px;
       background: #161b27; border-bottom: 1px solid #2a2f3f;
     }
-    .logo { font-size: 22px; font-weight: 700; color: #f0a500; letter-spacing: 1px; }
-    .nav-links { display: flex; gap: 1.5rem; font-size: 14px; }
-    .nav-links a { color: #aaa; text-decoration: none; display: flex; align-items: center; gap: 6px; }
-    .nav-links a:hover { color: #fff; }
+    .logo { font-size: 22px; font-weight: 800; color: #f0a500; letter-spacing: 2px; }
+    .nav-center {
+      display: flex; justify-content: center; gap: 2rem;
+      font-size: 14px;
+    }
+    .nav-center a {
+      color: #9aa0b4; text-decoration: none;
+      display: flex; align-items: center; gap: 7px;
+      padding: 0 4px; height: 56px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s;
+    }
+    .nav-center a:hover { color: #fff; }
+    .nav-center a.active { color: #fff; border-bottom: 2px solid #f0a500; }
+    .nav-center svg { width: 16px; height: 16px; opacity: 0.7; }
+
+    .nav-right {
+      display: flex; align-items: center; justify-content: flex-end;
+    }
+    .search-bar {
+      display: flex; align-items: center; gap: 8px;
+      background: #0f1117; border: 1px solid #2a2f3f;
+      border-radius: 8px; padding: 0 12px; height: 34px;
+      width: 200px;
+    }
+    .search-bar svg { width: 14px; height: 14px; color: #555; flex-shrink: 0; }
+    .search-bar input {
+      background: none; border: none; outline: none;
+      color: #aaa; font-size: 13px; width: 100%;
+    }
+    .search-bar input::placeholder { color: #555; }
+    .search-bar .slash {
+      font-size: 11px; color: #444;
+      border: 1px solid #333; border-radius: 4px;
+      padding: 1px 5px; flex-shrink: 0;
+    }
 
     .tabs {
-      display: flex; padding: 1.5rem 2rem 0;
+      display: flex; padding: 0 2rem;
       border-bottom: 1px solid #2a2f3f; background: #13181f;
     }
     .tab {
       display: flex; flex-direction: column; align-items: center; gap: 4px;
-      padding: 10px 24px; font-size: 13px; color: #888;
+      padding: 12px 22px; font-size: 13px; color: #888;
       cursor: pointer; border-bottom: 2px solid transparent;
     }
     .tab.active { color: #fff; border-bottom: 2px solid #f0a500; }
-    .tab-icon { font-size: 18px; }
+    .tab-icon { font-size: 17px; }
 
     .table-wrap { padding: 1.5rem 2rem; background: #13181f; min-height: 500px; }
 
@@ -86,23 +120,12 @@
       font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
       border: 1px solid;
     }
-    .rank-badge .dot {
-      width: 8px; height: 8px; border-radius: 50%;
-    }
-    .badge-grandmaster {
-      background: #1e0d3a; color: #d4a8ff;
-      border-color: #7c3aed55;
-    }
+    .rank-badge .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .badge-grandmaster { background: #1e0d3a; color: #d4a8ff; border-color: #7c3aed55; }
     .badge-grandmaster .dot { background: #a855f7; box-shadow: 0 0 6px #a855f7; }
-    .badge-master {
-      background: #0d1e3a; color: #93c5fd;
-      border-color: #3b82f655;
-    }
+    .badge-master { background: #0d1e3a; color: #93c5fd; border-color: #3b82f655; }
     .badge-master .dot { background: #60a5fa; box-shadow: 0 0 6px #60a5fa; }
-    .badge-ace {
-      background: #0d2a1a; color: #6ee7b7;
-      border-color: #10b98155;
-    }
+    .badge-ace { background: #0d2a1a; color: #6ee7b7; border-color: #10b98155; }
     .badge-ace .dot { background: #34d399; box-shadow: 0 0 6px #34d399; }
 
     .footer {
@@ -111,7 +134,9 @@
       background: #0f1117; border-top: 1px solid #1e2233;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
+      .nav { grid-template-columns: 1fr auto; }
+      .nav-center { display: none; }
       .header-row, .row { grid-template-columns: 40px 1fr 60px; }
       .rank-badge { display: none; }
     }
@@ -121,10 +146,26 @@
 
 <nav class="nav">
   <span class="logo">BBDTIERS</span>
-  <div class="nav-links">
-    <a href="#">🏠 Home</a>
-    <a href="#">🏆 Rankings</a>
-    <a href="#">💬 Discord</a>
+  <div class="nav-center">
+    <a href="#" class="active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Home
+    </a>
+    <a href="#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+      Rankings
+    </a>
+    <a href="#">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Discord
+    </a>
+  </div>
+  <div class="nav-right">
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search player..." />
+      <span class="slash">/</span>
+    </div>
   </div>
 </nav>
 
@@ -144,10 +185,7 @@
     <div class="rank-num gold">1</div>
     <div class="player-info">
       <div class="avatar">ZR</div>
-      <div>
-        <div class="player-name">ZeroRekt</div>
-        <div class="player-title">450 pts</div>
-      </div>
+      <div><div class="player-name">ZeroRekt</div><div class="player-title">450 pts</div></div>
     </div>
     <div><span class="region na">NA</span></div>
     <div><span class="rank-badge badge-grandmaster"><span class="dot"></span>Combat Grandmaster</span></div>
@@ -157,10 +195,7 @@
     <div class="rank-num silver">2</div>
     <div class="player-info">
       <div class="avatar">AX</div>
-      <div>
-        <div class="player-name">AxelPvP</div>
-        <div class="player-title">330 pts</div>
-      </div>
+      <div><div class="player-name">AxelPvP</div><div class="player-title">330 pts</div></div>
     </div>
     <div><span class="region eu">EU</span></div>
     <div><span class="rank-badge badge-master"><span class="dot"></span>Combat Master</span></div>
@@ -170,10 +205,7 @@
     <div class="rank-num bronze">3</div>
     <div class="player-info">
       <div class="avatar">NX</div>
-      <div>
-        <div class="player-name">NoxFrost</div>
-        <div class="player-title">320 pts</div>
-      </div>
+      <div><div class="player-name">NoxFrost</div><div class="player-title">320 pts</div></div>
     </div>
     <div><span class="region na">NA</span></div>
     <div><span class="rank-badge badge-master"><span class="dot"></span>Combat Master</span></div>
@@ -183,10 +215,7 @@
     <div class="rank-num">4</div>
     <div class="player-info">
       <div class="avatar">VX</div>
-      <div>
-        <div class="player-name">VexBlade</div>
-        <div class="player-title">290 pts</div>
-      </div>
+      <div><div class="player-name">VexBlade</div><div class="player-title">290 pts</div></div>
     </div>
     <div><span class="region eu">EU</span></div>
     <div><span class="rank-badge badge-ace"><span class="dot"></span>Combat Ace</span></div>
@@ -196,10 +225,7 @@
     <div class="rank-num">5</div>
     <div class="player-info">
       <div class="avatar">SK</div>
-      <div>
-        <div class="player-name">SkyKill</div>
-        <div class="player-title">245 pts</div>
-      </div>
+      <div><div class="player-name">SkyKill</div><div class="player-title">245 pts</div></div>
     </div>
     <div><span class="region na">NA</span></div>
     <div><span class="rank-badge badge-ace"><span class="dot"></span>Combat Ace</span></div>
@@ -209,10 +235,7 @@
     <div class="rank-num">6</div>
     <div class="player-info">
       <div class="avatar">CR</div>
-      <div>
-        <div class="player-name">CrimsonArc</div>
-        <div class="player-title">226 pts</div>
-      </div>
+      <div><div class="player-name">CrimsonArc</div><div class="player-title">226 pts</div></div>
     </div>
     <div><span class="region eu">EU</span></div>
     <div><span class="rank-badge badge-ace"><span class="dot"></span>Combat Ace</span></div>
