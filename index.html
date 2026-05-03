@@ -14,9 +14,8 @@
       align-items: center;
       padding: 0 2rem; height: 60px;
       background: #161b27; border-bottom: 1px solid #2a2f3f;
-      position: sticky; top: 0; z-index: 10;
     }
-    .logo { font-size: 24px; font-weight: 900; color: #f0a500; letter-spacing: 2px; }
+    .logo { font-size: 22px; font-weight: 900; color: #f0a500; letter-spacing: 2px; }
     .nav-center { display: flex; justify-content: center; gap: 2rem; font-size: 14px; }
     .nav-center a {
       color: #9aa0b4; text-decoration: none;
@@ -33,100 +32,121 @@
       background: #0d1117; border: 1px solid #2a2f3f;
       border-radius: 8px; padding: 0 12px; height: 34px; width: 200px;
     }
-    .search-bar svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .search-bar svg { width: 14px; height: 14px; flex-shrink: 0; stroke: #555; }
     .search-bar input { background: none; border: none; outline: none; color: #aaa; font-size: 13px; width: 100%; }
     .search-bar input::placeholder { color: #555; }
     .search-bar .slash { font-size: 11px; color: #444; border: 1px solid #333; border-radius: 4px; padding: 1px 5px; }
 
     .tabs-wrap { background: #13181f; border-bottom: 1px solid #2a2f3f; }
-    .tabs { display: flex; max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+    .tabs { display: flex; max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
     .tab {
       display: flex; flex-direction: column; align-items: center; gap: 4px;
       padding: 12px 22px; font-size: 12px; color: #666;
-      cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap;
+      cursor: pointer; border-bottom: 2px solid transparent;
     }
     .tab.active { color: #fff; border-bottom: 2px solid #f0a500; }
     .tab-icon { font-size: 18px; }
 
-    .content { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
+    .content { max-width: 1100px; margin: 0 auto; padding: 1.5rem 2rem; }
 
     .header-row {
       display: grid;
-      grid-template-columns: 120px 1fr 100px;
+      grid-template-columns: 80px 1fr 120px 120px;
       gap: 1rem; padding: 6px 16px;
-      font-size: 11px; color: #555;
-      letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px;
+      font-size: 11px; color: #444;
+      letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 4px;
     }
 
     .row {
       display: grid;
-      grid-template-columns: 120px 1fr 100px;
-      align-items: center; gap: 1rem;
-      margin-bottom: 8px; border-radius: 10px;
-      background: #1a1f2e; border: 1px solid #222840;
-      overflow: hidden; transition: background 0.15s;
+      grid-template-columns: 80px 1fr 120px 120px;
+      align-items: center; gap: 0;
+      margin-bottom: 2px;
+      background: #161c2a;
+      border: 1px solid #1e2438;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: background 0.15s;
       min-height: 72px;
     }
-    .row:hover { background: #1e2438; }
+    .row:hover { background: #1c2340; }
 
-    /* Big rank box like MCTiers */
-    .rank-box {
-      display: flex; align-items: center; gap: 12px;
-      padding: 0 16px; height: 100%; min-height: 72px;
-      border-right: 1px solid #222840;
+    /* Left rank+avatar block */
+    .rank-block {
+      display: flex; align-items: center; gap: 10px;
+      padding: 0 14px; height: 100%; min-height: 72px;
+      border-right: 1px solid #1e2438;
     }
-    .rank-box.gold   { background: linear-gradient(90deg, #2a1e00, #1a1f2e); }
-    .rank-box.silver { background: linear-gradient(90deg, #1a1a1a, #1a1f2e); }
-    .rank-box.bronze { background: linear-gradient(90deg, #1e1208, #1a1f2e); }
+    .rank-block.gold   { background: #1f1700; }
+    .rank-block.silver { background: #151515; }
+    .rank-block.bronze { background: #180f04; }
+
     .rank-num {
-      font-size: 28px; font-weight: 900; min-width: 32px;
-      display: flex; align-items: center;
+      font-size: 22px; font-weight: 900;
+      min-width: 28px; text-align: center;
     }
     .rank-num.gold   { color: #f0a500; }
-    .rank-num.silver { color: #c0c0c0; }
+    .rank-num.silver { color: #b0b0b0; }
     .rank-num.bronze { color: #cd7f32; }
-    .rank-num.default { color: #555; }
+    .rank-num.plain  { color: #4a5070; }
+
     .avatar {
-      width: 48px; height: 48px; border-radius: 6px;
-      background: #2a3050; display: flex; align-items: center;
-      justify-content: center; font-size: 14px; font-weight: 700; color: #aaa;
-      flex-shrink: 0; border: 1px solid #333a5a;
+      width: 40px; height: 40px; border-radius: 8px;
+      background: #252d4a; border: 1px solid #2e3860;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: #8890b0;
+      flex-shrink: 0;
     }
 
-    .player-info { padding: 12px 0; }
-    .player-name { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .player-badge {
+    /* Player name + rank badge */
+    .player-block { padding: 14px 16px; }
+    .player-name { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 5px; }
+
+    .rank-badge {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 12px; font-weight: 600;
+      padding: 3px 10px; border-radius: 6px;
+      font-size: 12px; font-weight: 600; border: 1px solid;
     }
-    .player-badge .dot { width: 7px; height: 7px; border-radius: 50%; }
-    .badge-grandmaster { color: #d4a8ff; }
-    .badge-grandmaster .dot { background: #a855f7; box-shadow: 0 0 5px #a855f7; }
-    .badge-master { color: #93c5fd; }
-    .badge-master .dot { background: #60a5fa; box-shadow: 0 0 5px #60a5fa; }
-    .badge-ace { color: #6ee7b7; }
-    .badge-ace .dot { background: #34d399; box-shadow: 0 0 5px #34d399; }
-    .pts { color: #555; font-size: 12px; margin-left: 4px; }
+    .rank-badge .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .pts { color: #444; font-size: 11px; margin-left: 4px; }
 
+    .badge-gm   { background: #1e0d3a; color: #d4a8ff; border-color: #6d28d955; }
+    .badge-gm .dot { background: #a855f7; box-shadow: 0 0 5px #a855f7aa; }
+    .badge-m    { background: #0d1e3a; color: #93c5fd; border-color: #2563eb55; }
+    .badge-m .dot { background: #60a5fa; box-shadow: 0 0 5px #60a5faaa; }
+    .badge-ace  { background: #0a2318; color: #6ee7b7; border-color: #059669aa; }
+    .badge-ace .dot { background: #34d399; box-shadow: 0 0 5px #34d399aa; }
+
+    /* Region */
     .region-cell { display: flex; align-items: center; justify-content: center; }
     .region {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 5px 16px; border-radius: 6px;
+      padding: 4px 16px; border-radius: 6px;
       font-size: 13px; font-weight: 800; letter-spacing: 1px;
     }
-    .na { background: #7b1e1e44; color: #ff8a8a; border: 1px solid #7b1e1e; }
-    .eu { background: #1e3a7b44; color: #8aafff; border: 1px solid #1e3a7b; }
+    .na { background: #4a0f0f; color: #ff7070; border: 1px solid #8b1a1a; }
+    .eu { background: #0f1f4a; color: #7090ff; border: 1px solid #1a3a8b; }
 
-    .footer {
-      text-align: center; padding: 2rem;
-      color: #444; font-size: 13px;
-      border-top: 1px solid #1e2233;
+    /* Rank label column */
+    .rank-label-cell { display: flex; align-items: center; justify-content: flex-end; padding-right: 16px; }
+    .rank-label {
+      font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; gap: 6px;
     }
+    .rank-label .dot { width: 7px; height: 7px; border-radius: 50%; }
+    .label-gm   { color: #d4a8ff; }
+    .label-gm .dot { background: #a855f7; box-shadow: 0 0 5px #a855f7aa; }
+    .label-m    { color: #93c5fd; }
+    .label-m .dot { background: #60a5fa; box-shadow: 0 0 5px #60a5faaa; }
+    .label-ace  { color: #6ee7b7; }
+    .label-ace .dot { background: #34d399; box-shadow: 0 0 5px #34d399aa; }
 
-    @media (max-width: 650px) {
+    .footer { text-align: center; padding: 2.5rem; color: #333; font-size: 13px; margin-top: 2rem; }
+
+    @media (max-width: 700px) {
       .nav { grid-template-columns: 1fr auto; }
       .nav-center { display: none; }
-      .header-row, .row { grid-template-columns: 100px 1fr 70px; }
+      .header-row, .row { grid-template-columns: 70px 1fr 70px; }
+      .rank-label-cell { display: none; }
     }
   </style>
 </head>
@@ -168,85 +188,90 @@
     <div># Player</div>
     <div></div>
     <div style="text-align:center">Region</div>
+    <div style="text-align:right;padding-right:16px">Rank</div>
   </div>
 
   <div class="row">
-    <div class="rank-box gold">
+    <div class="rank-block gold">
       <div class="rank-num gold">1.</div>
       <div class="avatar">ZR</div>
     </div>
-    <div class="player-info">
+    <div class="player-block">
       <div class="player-name">ZeroRekt</div>
-      <div class="player-badge badge-grandmaster"><span class="dot"></span>Combat Grandmaster <span class="pts">(450 points)</span></div>
+      <div class="rank-badge badge-gm"><span class="dot"></span>Combat Grandmaster <span class="pts">(450 pts)</span></div>
     </div>
     <div class="region-cell"><span class="region na">NA</span></div>
+    <div class="rank-label-cell"><span class="rank-label label-gm"><span class="dot"></span>Grandmaster</span></div>
   </div>
 
   <div class="row">
-    <div class="rank-box silver">
+    <div class="rank-block silver">
       <div class="rank-num silver">2.</div>
       <div class="avatar">AX</div>
     </div>
-    <div class="player-info">
+    <div class="player-block">
       <div class="player-name">AxelPvP</div>
-      <div class="player-badge badge-master"><span class="dot"></span>Combat Master <span class="pts">(330 points)</span></div>
+      <div class="rank-badge badge-m"><span class="dot"></span>Combat Master <span class="pts">(330 pts)</span></div>
     </div>
     <div class="region-cell"><span class="region eu">EU</span></div>
+    <div class="rank-label-cell"><span class="rank-label label-m"><span class="dot"></span>Master</span></div>
   </div>
 
   <div class="row">
-    <div class="rank-box bronze">
+    <div class="rank-block bronze">
       <div class="rank-num bronze">3.</div>
       <div class="avatar">NX</div>
     </div>
-    <div class="player-info">
+    <div class="player-block">
       <div class="player-name">NoxFrost</div>
-      <div class="player-badge badge-master"><span class="dot"></span>Combat Master <span class="pts">(320 points)</span></div>
+      <div class="rank-badge badge-m"><span class="dot"></span>Combat Master <span class="pts">(320 pts)</span></div>
     </div>
     <div class="region-cell"><span class="region na">NA</span></div>
+    <div class="rank-label-cell"><span class="rank-label label-m"><span class="dot"></span>Master</span></div>
   </div>
 
   <div class="row">
-    <div class="rank-box">
-      <div class="rank-num default">4.</div>
+    <div class="rank-block">
+      <div class="rank-num plain">4.</div>
       <div class="avatar">VX</div>
     </div>
-    <div class="player-info">
+    <div class="player-block">
       <div class="player-name">VexBlade</div>
-      <div class="player-badge badge-ace"><span class="dot"></span>Combat Ace <span class="pts">(290 points)</span></div>
+      <div class="rank-badge badge-ace"><span class="dot"></span>Combat Ace <span class="pts">(290 pts)</span></div>
     </div>
     <div class="region-cell"><span class="region eu">EU</span></div>
+    <div class="rank-label-cell"><span class="rank-label label-ace"><span class="dot"></span>Ace</span></div>
   </div>
 
   <div class="row">
-    <div class="rank-box">
-      <div class="rank-num default">5.</div>
+    <div class="rank-block">
+      <div class="rank-num plain">5.</div>
       <div class="avatar">SK</div>
     </div>
-    <div class="player-info">
+    <div class="player-block">
       <div class="player-name">SkyKill</div>
-      <div class="player-badge badge-ace"><span class="dot"></span>Combat Ace <span class="pts">(245 points)</span></div>
+      <div class="rank-badge badge-ace"><span class="dot"></span>Combat Ace <span class="pts">(245 pts)</span></div>
     </div>
     <div class="region-cell"><span class="region na">NA</span></div>
+    <div class="rank-label-cell"><span class="rank-label label-ace"><span class="dot"></span>Ace</span></div>
   </div>
 
   <div class="row">
-    <div class="rank-box">
-      <div class="rank-num default">6.</div>
+    <div class="rank-block">
+      <div class="rank-num plain">6.</div>
       <div class="avatar">CR</div>
     </div>
-    <div class="player-info">
+    <div class="player-block">
       <div class="player-name">CrimsonArc</div>
-      <div class="player-badge badge-ace"><span class="dot"></span>Combat Ace <span class="pts">(226 points)</span></div>
+      <div class="rank-badge badge-ace"><span class="dot"></span>Combat Ace <span class="pts">(226 pts)</span></div>
     </div>
     <div class="region-cell"><span class="region eu">EU</span></div>
+    <div class="rank-label-cell"><span class="rank-label label-ace"><span class="dot"></span>Ace</span></div>
   </div>
 
 </div>
 
-<div class="footer">
-  BBDTIERS &copy; 2026 — Minecraft PvP Rankings
-</div>
+<div class="footer">BBDTIERS &copy; 2026 — Minecraft PvP Rankings</div>
 
 </body>
 </html>
