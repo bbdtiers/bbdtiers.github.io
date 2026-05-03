@@ -37,71 +37,73 @@
     .search-bar input::placeholder { color: #555; }
     .search-bar .slash { font-size: 11px; color: #444; border: 1px solid #333; border-radius: 4px; padding: 1px 5px; }
 
-    .tabs-wrap { background: #13181f; border-bottom: 1px solid #2a2f3f; }
-    .tabs { display: flex; max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    /* TABS - MCTiers pill style */
+    .tabs-wrap { background: #0d1117; padding: 20px 2rem; }
+    .tabs { display: flex; gap: 10px; max-width: 1100px; margin: 0 auto; flex-wrap: wrap; }
     .tab {
-      display: flex; flex-direction: column; align-items: center; gap: 4px;
-      padding: 12px 22px; font-size: 12px; color: #666;
-      cursor: pointer; border-bottom: 2px solid transparent;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 12px 20px; font-size: 13px; font-weight: 600; color: #666;
+      cursor: pointer; border-radius: 12px;
+      border: 1px solid #1e2438;
+      background: #13181f;
+      transition: all 0.15s; min-width: 80px;
     }
-    .tab.active { color: #fff; border-bottom: 2px solid #f0a500; }
-    .tab-icon { font-size: 18px; }
+    .tab:hover { color: #bbb; border-color: #2e3a50; background: #1a2030; }
+    .tab.active {
+      color: #fff; background: #1e2438;
+      border-color: #f0a500;
+      box-shadow: 0 0 0 1px #f0a50033;
+    }
+    .tab-icon { font-size: 22px; }
 
-    .content { max-width: 1100px; margin: 0 auto; padding: 1.5rem 2rem; }
+    .content { max-width: 1100px; margin: 0 auto; padding: 0 2rem 2rem; }
 
     .header-row {
       display: grid;
-      grid-template-columns: 80px 1fr 120px 120px;
+      grid-template-columns: 90px 1fr 120px 160px;
       gap: 1rem; padding: 6px 16px;
       font-size: 11px; color: #444;
-      letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 4px;
+      letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 6px;
     }
 
     .row {
       display: grid;
-      grid-template-columns: 80px 1fr 120px 120px;
+      grid-template-columns: 90px 1fr 120px 160px;
       align-items: center; gap: 0;
-      margin-bottom: 2px;
+      margin-bottom: 6px;
       background: #161c2a;
       border: 1px solid #1e2438;
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
       transition: background 0.15s;
-      min-height: 72px;
+      min-height: 76px;
     }
     .row:hover { background: #1c2340; }
 
-    /* Left rank+avatar block */
     .rank-block {
       display: flex; align-items: center; gap: 10px;
-      padding: 0 14px; height: 100%; min-height: 72px;
+      padding: 0 14px; height: 100%; min-height: 76px;
       border-right: 1px solid #1e2438;
     }
     .rank-block.gold   { background: #1f1700; }
     .rank-block.silver { background: #151515; }
     .rank-block.bronze { background: #180f04; }
 
-    .rank-num {
-      font-size: 22px; font-weight: 900;
-      min-width: 28px; text-align: center;
-    }
+    .rank-num { font-size: 22px; font-weight: 900; min-width: 28px; text-align: center; }
     .rank-num.gold   { color: #f0a500; }
     .rank-num.silver { color: #b0b0b0; }
     .rank-num.bronze { color: #cd7f32; }
     .rank-num.plain  { color: #4a5070; }
 
     .avatar {
-      width: 40px; height: 40px; border-radius: 8px;
+      width: 42px; height: 42px; border-radius: 8px;
       background: #252d4a; border: 1px solid #2e3860;
       display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700; color: #8890b0;
-      flex-shrink: 0;
+      font-size: 12px; font-weight: 700; color: #8890b0; flex-shrink: 0;
     }
 
-    /* Player name + rank badge */
     .player-block { padding: 14px 16px; }
     .player-name { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 5px; }
-
     .rank-badge {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 3px 10px; border-radius: 6px;
@@ -109,38 +111,29 @@
     }
     .rank-badge .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
     .pts { color: #444; font-size: 11px; margin-left: 4px; }
-
-    .badge-gm   { background: #1e0d3a; color: #d4a8ff; border-color: #6d28d955; }
+    .badge-gm  { background: #1e0d3a; color: #d4a8ff; border-color: #6d28d955; }
     .badge-gm .dot { background: #a855f7; box-shadow: 0 0 5px #a855f7aa; }
-    .badge-m    { background: #0d1e3a; color: #93c5fd; border-color: #2563eb55; }
+    .badge-m   { background: #0d1e3a; color: #93c5fd; border-color: #2563eb55; }
     .badge-m .dot { background: #60a5fa; box-shadow: 0 0 5px #60a5faaa; }
-    .badge-ace  { background: #0a2318; color: #6ee7b7; border-color: #059669aa; }
+    .badge-ace { background: #0a2318; color: #6ee7b7; border-color: #05966955; }
     .badge-ace .dot { background: #34d399; box-shadow: 0 0 5px #34d399aa; }
 
-    /* Region */
     .region-cell { display: flex; align-items: center; justify-content: center; }
-    .region {
-      padding: 4px 16px; border-radius: 6px;
-      font-size: 13px; font-weight: 800; letter-spacing: 1px;
-    }
+    .region { padding: 4px 16px; border-radius: 6px; font-size: 13px; font-weight: 800; letter-spacing: 1px; }
     .na { background: #4a0f0f; color: #ff7070; border: 1px solid #8b1a1a; }
     .eu { background: #0f1f4a; color: #7090ff; border: 1px solid #1a3a8b; }
 
-    /* Rank label column */
     .rank-label-cell { display: flex; align-items: center; justify-content: flex-end; padding-right: 16px; }
-    .rank-label {
-      font-size: 13px; font-weight: 700;
-      display: flex; align-items: center; gap: 6px;
-    }
+    .rank-label { font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
     .rank-label .dot { width: 7px; height: 7px; border-radius: 50%; }
-    .label-gm   { color: #d4a8ff; }
+    .label-gm  { color: #d4a8ff; }
     .label-gm .dot { background: #a855f7; box-shadow: 0 0 5px #a855f7aa; }
-    .label-m    { color: #93c5fd; }
+    .label-m   { color: #93c5fd; }
     .label-m .dot { background: #60a5fa; box-shadow: 0 0 5px #60a5faaa; }
-    .label-ace  { color: #6ee7b7; }
+    .label-ace { color: #6ee7b7; }
     .label-ace .dot { background: #34d399; box-shadow: 0 0 5px #34d399aa; }
 
-    .footer { text-align: center; padding: 2.5rem; color: #333; font-size: 13px; margin-top: 2rem; }
+    .footer { text-align: center; padding: 2.5rem; color: #333; font-size: 13px; margin-top: 1rem; }
 
     @media (max-width: 700px) {
       .nav { grid-template-columns: 1fr auto; }
